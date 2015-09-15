@@ -54,9 +54,8 @@ class User(ParseResource):
     def session_header(self):
         return {'X-Parse-Session-Token': self.sessionToken}
 
-    @login_required
     def save(self, batch=False):
-        session_header = {'X-Parse-Session-Token': self.sessionToken}
+        session_header = {}
         url = self._absolute_url
         data = self._to_native()
 
